@@ -4,16 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodExpress - Food Delivery App</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.ico">
+    <title>Fudu Super App - Food Delivery & More</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .carousel-slide {
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body class="font-sans bg-gray-50">
+    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <div class="text-2xl font-bold text-orange-500">FoodExpress</div>
+                <div class="text-2xl font-bold text-orange-500">Fudu Super App</div>
             </div>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="text-gray-800 hover:text-orange-500">Home</a>
@@ -29,205 +50,273 @@
         </div>
     </nav>
 
+    <!-- Hero Section with Carousel -->
     <section id="home" class="bg-gradient-to-r from-orange-400 to-orange-600 text-white py-16">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Delicious Food Delivered To Your Doorstep
-                </h1>
-                <p class="text-xl mb-8">Order from your favorite restaurants with just a few taps on your phone. Fast,
-                    reliable, and delicious!</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button
-                        class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                        <div class="flex items-center justify-center">
-                            <i class="fab fa-google-play mr-2"></i>
-                            <div>
-                                <div class="text-xs">GET IT ON</div>
-                                <div class="text-lg">Google Play</div>
-                            </div>
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Text Content -->
+                <div class="md:w-1/2 mb-10 md:mb-0 relative min-h-[300px] md:min-h-[400px]">
+                    <div id="text-carousel">
+                        <!-- Slides will be inserted here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Image Content -->
+                <div class="md:w-1/2 relative min-h-[300px] md:min-h-[400px]">
+                    <div id="image-carousel" class="relative max-w-xl mx-auto h-full">
+                        <!-- Slides will be inserted here by JavaScript -->
+                        <div
+                            class="absolute -top-8 -left-8 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
                         </div>
-                    </button>
-                    <button
-                        class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition duration-300">
-                        <div class="flex items-center justify-center">
-                            <i class="fab fa-apple mr-2"></i>
-                            <div>
-                                <div class="text-xs">Download on the</div>
-                                <div class="text-lg">App Store</div>
-                            </div>
+                        <div
+                            class="absolute -bottom-8 -right-8 w-64 h-64 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-70">
                         </div>
-                    </button>
+                    </div>
                 </div>
             </div>
-            <div class="md:w-1/2 relative">
-                <div class="relative max-w-md mx-auto">
-                    <div
-                        class="absolute -top-8 -left-8 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
-                    </div>
-                    <div
-                        class="absolute -bottom-8 -right-8 w-64 h-64 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-70">
-                    </div>
-                    <div class="relative">
-                        <img src="https://cdn.dribbble.com/userupload/30789802/file/original-8f1b09bd420c0f909617e691d8d7bb51.png?resize=752x&vertical=center"
-                            alt="FoodExpress App" class="w-full h-auto rounded-lg shadow-2xl">
-                    </div>
+
+            <!-- Manual Controls -->
+            <div class="flex justify-center mt-8 space-x-4">
+                <button id="prev-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="carousel-dots" class="flex items-center space-x-2">
+                    <!-- Dots will be inserted here by JavaScript -->
                 </div>
+                <button id="next-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
 
+    <!-- Features Section -->
     <section id="features" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose FoodExpress?</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose Fudu Super App?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                     <div class="text-orange-500 mb-4">
-                        <i class="fas fa-bolt text-3xl"></i>
+                        <i class="fas fa-layer-group text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Fast Delivery</h3>
-                    <p class="text-gray-600">Get your food delivered in under 30 minutes with our optimized delivery
-                        network and dedicated riders.</p>
+                    <h3 class="text-xl font-semibold mb-3">All-in-One Platform</h3>
+                    <p class="text-gray-600">From food to rides, parcels to groceries - everything you need in one super
+                        app. No more switching between multiple apps for different services.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                     <div class="text-orange-500 mb-4">
-                        <i class="fas fa-utensils text-3xl"></i>
+                        <i class="fas fa-rocket text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Wide Selection</h3>
-                    <p class="text-gray-600">Choose from hundreds of restaurants and thousands of dishes to satisfy any
-                        craving.</p>
+                    <h3 class="text-xl font-semibold mb-3">Lightning Fast Service</h3>
+                    <p class="text-gray-600">Our optimized network ensures speedy delivery and quick pickups. Average
+                        delivery times under 30 minutes for food and 60 minutes for groceries.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                     <div class="text-orange-500 mb-4">
                         <i class="fas fa-shield-alt text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Safe & Secure</h3>
-                    <p class="text-gray-600">Contactless delivery options and secure payment methods ensure your safety
-                        and privacy.</p>
+                    <h3 class="text-xl font-semibold mb-3">Safe & Reliable</h3>
+                    <p class="text-gray-600">Verified partners, contactless delivery options, and secure payments. Your
+                        safety and satisfaction are our top priorities.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fas fa-wallet text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">FuduPay Wallet</h3>
+                    <p class="text-gray-600">One wallet for all services with cashback rewards and special discounts.
+                        Top up easily and pay seamlessly across all Fudu services.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fas fa-headset text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">24/7 Support</h3>
+                    <p class="text-gray-600">Dedicated customer support available round the clock. Real-time order
+                        tracking and instant chat support for any issues.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fas fa-percentage text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Exclusive Deals</h3>
+                    <p class="text-gray-600">Special discounts and promotions across all services. Save more when you
+                        use multiple Fudu services together.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- App Showcase Section -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <div class="relative max-w-xs mx-auto">
+                <div class="relative max-w-lg mx-auto">
                     <div
                         class="absolute -top-6 -left-6 w-48 h-48 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70">
                     </div>
                     <div class="relative">
-                        <img src="https://cdn.dribbble.com/userupload/30789803/file/original-90b8e522088b9561762a6da60a1d0c20.png?resize=752x&vertical=center"
-                            alt="App Screenshot" class="w-full h-auto rounded-lg shadow-lg">
+                        <img src="assets/1.jpg" alt="Fudu Super App Screenshot"
+                            class="w-full h-auto rounded-lg shadow-lg">
                     </div>
                 </div>
             </div>
             <div class="md:w-1/2 md:pl-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Easy to Use Mobile App</h2>
-                <p class="text-gray-600 mb-6">Our intuitive mobile app makes ordering food as simple as 1-2-3. Browse
-                    restaurants, customize your order, and track delivery in real-time.</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Your Everything App</h2>
+                <p class="text-gray-600 mb-6">The Fudu Super App combines all essential services in one intuitive
+                    platform.
+                    Manage food delivery, transportation, shopping, and more with seamless navigation and unified
+                    payments.</p>
                 <ul class="space-y-4">
                     <li class="flex items-start">
                         <div class="bg-orange-100 px-2 py-1 rounded-full mr-4">
                             <i class="fas fa-check text-orange-500"></i>
                         </div>
-                        <span class="text-gray-700">Personalized recommendations based on your taste</span>
+                        <span class="text-gray-700"><strong>Unified Dashboard:</strong> Access all Fudu services from
+                            one home screen with smart recommendations</span>
                     </li>
                     <li class="flex items-start">
                         <div class="bg-orange-100 px-2 py-1 rounded-full mr-4">
                             <i class="fas fa-check text-orange-500"></i>
                         </div>
-                        <span class="text-gray-700">Live order tracking with estimated arrival time</span>
+                        <span class="text-gray-700"><strong>Cross-Service Benefits:</strong> Earn rewards points that
+                            can be used across all Fudu platforms</span>
                     </li>
                     <li class="flex items-start">
                         <div class="bg-orange-100 px-2 py-1 rounded-full mr-4">
                             <i class="fas fa-check text-orange-500"></i>
                         </div>
-                        <span class="text-gray-700">Multiple payment options including cash on delivery</span>
+                        <span class="text-gray-700"><strong>Smart Notifications:</strong> Real-time updates for all your
+                            deliveries, rides, and orders in one place</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-orange-100 px-2 py-1 rounded-full mr-4">
+                            <i class="fas fa-check text-orange-500"></i>
+                        </div>
+                        <span class="text-gray-700"><strong>Family Accounts:</strong> Manage multiple users and payment
+                            methods for household convenience</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-orange-100 px-2 py-1 rounded-full mr-4">
+                            <i class="fas fa-check text-orange-500"></i>
+                        </div>
+                        <span class="text-gray-700"><strong>FuduPay Integration:</strong> One secure wallet for all
+                            transactions with spending insights</span>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Food Delivery" class="w-full h-48 object-cover">
+                    <img src="assets/food.jpg" alt="FuduRun Food Delivery" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Food Delivery</h3>
-                        <p class="text-gray-600">Order from your favorite local restaurants and have meals delivered
-                            fast.</p>
+                        <h3 class="text-xl font-semibold mb-2">FuduRun</h3>
+                        <p class="text-gray-600">24/7 food delivery from 1000+ restaurants with live order tracking and
+                            exclusive deals.</p>
                     </div>
                 </div>
                 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Grocery Delivery" class="w-full h-48 object-cover">
+                    <img src="assets/motor.jpg" alt="FuduMoto Ride-Hailing" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Grocery Delivery</h3>
-                        <p class="text-gray-600">Get fresh groceries delivered to your home in as little as one hour.
-                        </p>
+                        <h3 class="text-xl font-semibold mb-2">FuduMoto</h3>
+                        <p class="text-gray-600">Affordable motorbike rides to beat traffic with safety-certified
+                            drivers and instant booking.</p>
                     </div>
                 </div>
                 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1512152272829-e3139592d56f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Subscription Meals" class="w-full h-48 object-cover">
+                    <img src="assets/grocery.jpg" alt="FuduMart Grocery Delivery" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Subscription Meals</h3>
-                        <p class="text-gray-600">Healthy meals prepared by chefs and delivered on a schedule that works
-                            for you.</p>
+                        <h3 class="text-xl font-semibold mb-2">FuduMart</h3>
+                        <p class="text-gray-600">Fresh groceries delivered in 60 minutes with personal shopper service
+                            and quality guarantee.</p>
                     </div>
                 </div>
                 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Corporate Catering" class="w-full h-48 object-cover">
+                    <img src="assets/med.jpg" alt="FuduMeds Medicine Delivery" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Corporate Catering</h3>
-                        <p class="text-gray-600">Delicious meals for your office meetings and corporate events.</p>
+                        <h3 class="text-xl font-semibold mb-2">FuduMeds</h3>
+                        <p class="text-gray-600">Prescription medicines and health essentials with pharmacist
+                            consultation and emergency delivery.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="assets/car.jpg" alt="FuduRide Car Service" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">FuduRide</h3>
+                        <p class="text-gray-600">Premium car service for business and family trips with professional
+                            drivers.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="assets/parcel.jpg" alt="FuduSend Package Delivery" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">FuduSend</h3>
+                        <p class="text-gray-600">Reliable package delivery with real-time tracking and flexible pickup
+                            options.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Download Section -->
     <section id="download" class="py-16 bg-gradient-to-r from-orange-400 to-orange-600 text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Download Our App Now</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Join millions of happy customers enjoying fast food delivery at
-                their fingertips.</p>
+            <h2 class="text-3xl font-bold mb-6">Get the Fudu Super App</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">One app for all your daily needs - food, rides, shopping,
+                medicine, and more. Join 5 million+ users enjoying convenience at their fingertips.</p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <button
-                    class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    class="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 hover:scale-105 transform">
                     <div class="flex items-center justify-center">
-                        <i class="fab fa-google-play mr-2"></i>
-                        <div>
+                        <i class="fab fa-google-play text-2xl mr-3"></i>
+                        <div class="text-left">
                             <div class="text-xs">GET IT ON</div>
-                            <div class="text-lg">Google Play</div>
+                            <div class="text-lg font-bold">Google Play</div>
                         </div>
                     </div>
                 </button>
                 <button
-                    class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition duration-300">
+                    class="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition duration-300 hover:scale-105 transform">
                     <div class="flex items-center justify-center">
-                        <i class="fab fa-apple mr-2"></i>
-                        <div>
+                        <i class="fab fa-apple text-2xl mr-3"></i>
+                        <div class="text-left">
                             <div class="text-xs">Download on the</div>
-                            <div class="text-lg">App Store</div>
+                            <div class="text-lg font-bold">App Store</div>
                         </div>
                     </div>
                 </button>
             </div>
+            <div class="mt-8 flex justify-center space-x-6">
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-300 mr-2"></i>
+                    <span>4.9/5 (250K+ reviews)</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-users mr-2"></i>
+                    <span>5M+ downloads</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-bolt mr-2"></i>
+                    <span>Fast & reliable</span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">FoodExpress</h3>
-                    <p class="text-gray-400">Delivering happiness to your doorstep since 2020.</p>
+                    <h3 class="text-xl font-bold mb-4">Fudu Super App</h3>
+                    <p class="text-gray-400">Delivering happiness with ♥️ since 2025.</p>
                     <div class="flex space-x-4 mt-4">
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
@@ -258,7 +347,7 @@
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
-                            <span>123 Food Street, Foodville, 56789</span>
+                            <span>123 Food Street, Foodville</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-phone-alt mt-1 mr-2"></i>
@@ -266,23 +355,179 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-2"></i>
-                            <span>support@foodexpress.com</span>
+                            <span>support@fudu.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 FoodExpress. All rights reserved.</p>
+                <p>&copy; 2025 Fudu Super App. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carousel data
+            const slides = [
+                {
+                    title: 'FuduRun — Food Delivery',
+                    desc: 'Craving your favorite meals? FuduRun delivers restaurant-quality food straight to your door in minutes. With thousands of partner restaurants across the city, enjoy everything from local favorites to international cuisine. Track your order in real-time and get notifications when your food is on its way. Late-night cravings? We\'ve got you covered with 24/7 delivery service.',
+                    image: 'assets/food.jpg'
+                },
+                {
+                    title: 'FuduSend — Package & Parcel Delivery',
+                    desc: 'Need to send something important? FuduSend provides reliable, fast parcel delivery across town or across the country. Our network of professional couriers ensures your packages arrive safely and on time. Schedule pickups at your convenience, track shipments in real-time, and choose from same-day, next-day, or economy delivery options. Business solutions available for regular shippers.',
+                    image: 'assets/parcel.jpg'
+                },
+                {
+                    title: 'FuduMoto — Motorbike Ride-Hailing',
+                    desc: 'Beat the traffic with FuduMoto! Our motorbike taxi service gets you where you need to go faster than traditional rides. Perfect for navigating crowded city streets, our trained drivers will get you to your destination safely. Affordable prices, helmet provided, and cashless payment options. Available 24/7 for your convenience.',
+                    image: 'assets/motor.jpg'
+                },
+                {
+                    title: 'FuduRide — Car Ride-Hailing',
+                    desc: 'Travel in comfort with FuduRide. Choose from economy, premium, or XL vehicles to suit your needs. All our drivers are professionally licensed and vehicles are regularly inspected for your safety. Schedule rides in advance or book on-demand. Perfect for airport transfers, business meetings, or nights out on the town.',
+                    image: 'assets/car.jpg'
+                },
+                {
+                    title: 'FuduMeds — Medicine Shopping & Delivery',
+                    desc: 'Your health matters - get prescription medications and health essentials delivered straight to your door. Our partnered pharmacies ensure authentic products at competitive prices. Upload prescriptions through our app for easy refills. Emergency delivery available for urgent medical needs. Health professionals available for consultation through our app.',
+                    image: 'assets/med.jpg'
+                },
+                {
+                    title: 'FuduMart — Grocery Shopping & Delivery',
+                    desc: 'Skip the supermarket lines with FuduMart! Shop from thousands of grocery items including fresh produce, meats, dairy, and household essentials. Our personal shoppers carefully select the best quality items for you. Choose 1-hour express delivery or schedule for later. Special dietary needs? We\'ve got vegan, organic, and gluten-free options available.',
+                    image: 'assets/grocery.jpg'
+                }
+            ];
+
+            // Initialize carousel
+            let currentSlide = 0;
+            let autoplayInterval;
+            const textCarousel = document.getElementById('text-carousel');
+            const imageCarousel = document.getElementById('image-carousel');
+            const dotsContainer = document.getElementById('carousel-dots');
+
+            // Create slides and dots
+            slides.forEach((slide, index) => {
+                // Create text slides
+                const textSlide = document.createElement('div');
+                textSlide.className = 'carousel-slide';
+                textSlide.innerHTML = `<h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">${slide.title}</h1>
+                                        <p class="text-xl mb-8">${slide.desc}</p>
+                                        <div class="flex space-x-4">
+                                            <button
+                                                class="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 hover:scale-105 transform">
+                                                <div class="flex items-center justify-center">
+                                                    <i class="fab fa-google-play text-2xl mr-3"></i>
+                                                    <div class="text-left">
+                                                        <div class="text-xs">GET IT ON</div>
+                                                        <div class="text-lg font-bold">Google Play</div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button
+                                                class="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition duration-300 hover:scale-105 transform">
+                                                <div class="flex items-center justify-center">
+                                                    <i class="fab fa-apple text-2xl mr-3"></i>
+                                                    <div class="text-left">
+                                                        <div class="text-xs">Download on the</div>
+                                                        <div class="text-lg font-bold">App Store</div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    `;
+                textCarousel.appendChild(textSlide);
+
+                // Create image slides
+                const imageSlide = document.createElement('div');
+                imageSlide.className = 'carousel-slide';
+                imageSlide.innerHTML = `
+                    <img src="${slide.image}" alt="${slide.title}" class="w-full h-auto rounded-lg shadow-2xl">
+                `;
+                imageCarousel.appendChild(imageSlide);
+
+                // Create dots
+                const dot = document.createElement('button');
+                dot.className = 'w-3 h-3 rounded-full transition-all duration-300';
+                dot.classList.add(index === 0 ? 'bg-white' : 'bg-white', 'bg-opacity-50');
+                dot.style.width = index === 0 ? '24px' : '12px';
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            // Show first slide
+            showSlide(currentSlide);
+
+            // Navigation buttons
+            document.getElementById('prev-btn').addEventListener('click', prevSlide);
+            document.getElementById('next-btn').addEventListener('click', nextSlide);
+
+            // Autoplay
+            startAutoplay();
+
+            // Pause on hover
+            const carouselSection = document.getElementById('home');
+            carouselSection.addEventListener('mouseenter', stopAutoplay);
+            carouselSection.addEventListener('mouseleave', startAutoplay);
+
+            // Functions
+            function showSlide(index) {
+                // Update text slides
+                const textSlides = document.querySelectorAll('#text-carousel .carousel-slide');
+                textSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+
+                // Update image slides
+                const imageSlides = document.querySelectorAll('#image-carousel .carousel-slide');
+                imageSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+
+                // Update dots
+                const dots = document.querySelectorAll('#carousel-dots button');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-opacity-50', i !== index);
+                    dot.style.width = i === index ? '24px' : '12px';
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                showSlide(currentSlide);
+            }
+
+            function startAutoplay() {
+                stopAutoplay();
+                autoplayInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoplay() {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                }
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
         });
