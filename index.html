@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Food Delivery App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="text-2xl font-bold text-orange-500">FoodExpress</div>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-orange-500">Home</a>
+                <a href="#features" class="text-gray-800 hover:text-orange-500">Features</a>
+                <a href="#services" class="text-gray-800 hover:text-orange-500">Services</a>
+                <a href="#download" class="text-gray-800 hover:text-orange-500">Download</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-orange-400 to-orange-600 text-white py-16">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Delicious Food Delivered To Your Doorstep
+                </h1>
+                <p class="text-xl mb-8">Order from your favorite restaurants with just a few taps on your phone. Fast,
+                    reliable, and delicious!</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button
+                        class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                        <div class="flex items-center justify-center">
+                            <i class="fab fa-google-play mr-2"></i>
+                            <div>
+                                <div class="text-xs">GET IT ON</div>
+                                <div class="text-lg">Google Play</div>
+                            </div>
+                        </div>
+                    </button>
+                    <button
+                        class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition duration-300">
+                        <div class="flex items-center justify-center">
+                            <i class="fab fa-apple mr-2"></i>
+                            <div>
+                                <div class="text-xs">Download on the</div>
+                                <div class="text-lg">App Store</div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="relative max-w-md mx-auto">
+                    <div
+                        class="absolute -top-8 -left-8 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
+                    </div>
+                    <div
+                        class="absolute -bottom-8 -right-8 w-64 h-64 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-70">
+                    </div>
+                    <div class="relative">
+                        <img src="https://cdn.dribbble.com/userupload/30789802/file/original-8f1b09bd420c0f909617e691d8d7bb51.png?resize=752x&vertical=center"
+                            alt="FoodExpress App" class="w-full h-auto rounded-lg shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose FoodExpress?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fas fa-bolt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Fast Delivery</h3>
+                    <p class="text-gray-600">Get your food delivered in under 30 minutes with our optimized delivery
+                        network and dedicated riders.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fas fa-utensils text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Wide Selection</h3>
+                    <p class="text-gray-600">Choose from hundreds of restaurants and thousands of dishes to satisfy any
+                        craving.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fas fa-shield-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Safe & Secure</h3>
+                    <p class="text-gray-600">Contactless delivery options and secure payment methods ensure your safety
+                        and privacy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Showcase Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <div class="relative max-w-xs mx-auto">
+                    <div
+                        class="absolute -top-6 -left-6 w-48 h-48 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70">
+                    </div>
+                    <div class="relative">
+                        <img src="https://cdn.dribbble.com/userupload/30789803/file/original-90b8e522088b9561762a6da60a1d0c20.png?resize=752x&vertical=center"
+                            alt="App Screenshot" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Easy to Use Mobile App</h2>
+                <p class="text-gray-600 mb-6">Our intuitive mobile app makes ordering food as simple as 1-2-3. Browse
+                    restaurants, customize your order, and track delivery in real-time.</p>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <div class="bg-orange-100 p-2 rounded-full mr-4">
+                            <i class="fas fa-check text-orange-500"></i>
+                        </div>
+                        <span class="text-gray-700">Personalized recommendations based on your taste</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-orange-100 p-2 rounded-full mr-4">
+                            <i class="fas fa-check text-orange-500"></i>
+                        </div>
+                        <span class="text-gray-700">Live order tracking with estimated arrival time</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-orange-100 p-2 rounded-full mr-4">
+                            <i class="fas fa-check text-orange-500"></i>
+                        </div>
+                        <span class="text-gray-700">Multiple payment options including cash on delivery</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Food Delivery" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Food Delivery</h3>
+                        <p class="text-gray-600">Order from your favorite local restaurants and have meals delivered
+                            fast.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Grocery Delivery" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Grocery Delivery</h3>
+                        <p class="text-gray-600">Get fresh groceries delivered to your home in as little as one hour.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1512152272829-e3139592d56f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Subscription Meals" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Subscription Meals</h3>
+                        <p class="text-gray-600">Healthy meals prepared by chefs and delivered on a schedule that works
+                            for you.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Corporate Catering" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Corporate Catering</h3>
+                        <p class="text-gray-600">Delicious meals for your office meetings and corporate events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-16 bg-gradient-to-r from-orange-400 to-orange-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Download Our App Now</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join millions of happy customers enjoying fast food delivery at
+                their fingertips.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button
+                    class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    <div class="flex items-center justify-center">
+                        <i class="fab fa-google-play mr-2"></i>
+                        <div>
+                            <div class="text-xs">GET IT ON</div>
+                            <div class="text-lg">Google Play</div>
+                        </div>
+                    </div>
+                </button>
+                <button
+                    class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition duration-300">
+                    <div class="flex items-center justify-center">
+                        <i class="fab fa-apple mr-2"></i>
+                        <div>
+                            <div class="text-xs">Download on the</div>
+                            <div class="text-lg">App Store</div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">FoodExpress</h3>
+                    <p class="text-gray-400">Delivering happiness to your doorstep since 2020.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>123 Food Street, Foodville, 56789</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>support@foodexpress.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 FoodExpress. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
