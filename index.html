@@ -20,11 +20,69 @@
             top: 0;
             left: 0;
             width: 100%;
+            height: 100%;
         }
 
         .carousel-slide.active {
             opacity: 1;
             position: relative;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .image-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controls-container {
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+            }
         }
     </style>
 </head>
@@ -54,43 +112,63 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Carousel -->
-    <section id="home" class="bg-gradient-to-r from-orange-400 to-orange-600 text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <!-- Text Content -->
-                <div class="md:w-1/2 mb-10 md:mb-0 relative min-h-[300px] md:min-h-[400px]">
-                    <div id="text-carousel">
+    <!-- Hero Section with Full-width Carousel -->
+    <section id="home" class="hero-section">
+        <!-- Image Carousel Background -->
+        <div class="image-carousel">
+            <div id="image-carousel" class="relative h-full">
+                <!-- Slides will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Content on top of the image -->
+        <div class="container mx-auto px-6 h-full">
+            <div class="hero-content">
+                <div class="text-white max-w-2xl relative z-10 w-full">
+                    <div id="text-carousel" class="h-full flex flex-col justify-center">
                         <!-- Slides will be inserted here by JavaScript -->
                     </div>
-                </div>
 
-                <!-- Image Content -->
-                <div class="md:w-1/2 relative min-h-[300px] md:min-h-[400px]">
-                    <div id="image-carousel" class="relative max-w-xl mx-auto h-full">
-                        <!-- Slides will be inserted here by JavaScript -->
-                        <div
-                            class="absolute -top-8 -left-8 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
-                        </div>
-                        <div
-                            class="absolute -bottom-8 -right-8 w-64 h-64 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-70">
-                        </div>
+                    <div class="flex flex-col sm:flex-row justify-left space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button
+                            class="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 hover:scale-105 transform">
+                            <div class="flex items-center justify-center">
+                                <i class="fab fa-google-play text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">GET IT ON</div>
+                                    <div class="text-lg font-bold">Google Play</div>
+                                </div>
+                            </div>
+                        </button>
+                        <button
+                            class="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition duration-300 hover:scale-105 transform">
+                            <div class="flex items-center justify-center">
+                                <i class="fab fa-apple text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Download on the</div>
+                                    <div class="text-lg font-bold">App Store</div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Manual Controls -->
-            <div class="flex justify-center mt-8 space-x-4">
-                <button id="prev-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full hover:bg-gray-100">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div id="carousel-dots" class="flex items-center space-x-2">
-                    <!-- Dots will be inserted here by JavaScript -->
-                </div>
-                <button id="next-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full hover:bg-gray-100">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+        <!-- Manual Controls - Now positioned absolutely at bottom -->
+        <div class="controls-container">
+            <button id="prev-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full hover:bg-gray-100 z-20">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div id="carousel-dots" class="flex items-center space-x-2 mx-4 z-20">
+                <!-- Dots will be inserted here by JavaScript -->
             </div>
+            <button id="next-btn" class="bg-white text-orange-600 px-3 py-1 rounded-full hover:bg-gray-100 z-20">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -263,7 +341,7 @@
                     </div>
                 </div>
                 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <img src="assets/med.jpg" alt="FuduMeds Medicine Delivery" class="w-full h-48 object-cover">
+                    <img src="assets/medicine.jpg" alt="FuduMeds Medicine Delivery" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">FuduMeds</h3>
                         <p class="text-gray-600">Prescription medicines and health essentials with pharmacist
@@ -418,7 +496,7 @@
                 {
                     title: 'FuduMeds — Medicine Shopping & Delivery',
                     desc: 'Your health matters - get prescription medications and health essentials delivered straight to your door. Our partnered pharmacies ensure authentic products at competitive prices. Upload prescriptions through our app for easy refills. Emergency delivery available for urgent medical needs. Health professionals available for consultation through our app.',
-                    image: 'assets/med.jpg'
+                    image: 'assets/medicine.jpg'
                 },
                 {
                     title: 'FuduMart — Grocery Shopping & Delivery',
@@ -438,39 +516,16 @@
             slides.forEach((slide, index) => {
                 // Create text slides
                 const textSlide = document.createElement('div');
-                textSlide.className = 'carousel-slide';
+                textSlide.className = 'carousel-slide h-full flex flex-col justify-center';
                 textSlide.innerHTML = `<h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">${slide.title}</h1>
-                                        <p class="text-xl mb-8">${slide.desc}</p>
-                                        <div class="flex flex-col sm:flex-row justify-left space-y-4 sm:space-y-0 sm:space-x-4">
-                                            <button
-                                                class="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300 hover:scale-105 transform">
-                                                <div class="flex items-center justify-center">
-                                                    <i class="fab fa-google-play text-2xl mr-3"></i>
-                                                    <div class="text-left">
-                                                        <div class="text-xs">GET IT ON</div>
-                                                        <div class="text-lg font-bold">Google Play</div>
-                                                    </div>
-                                                </div>
-                                            </button>
-                                            <button
-                                                class="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition duration-300 hover:scale-105 transform">
-                                                <div class="flex items-center justify-center">
-                                                    <i class="fab fa-apple text-2xl mr-3"></i>
-                                                    <div class="text-left">
-                                                        <div class="text-xs">Download on the</div>
-                                                        <div class="text-lg font-bold">App Store</div>
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </div>
-                                    `;
+                                        <p class="text-xl mb-8">${slide.desc}</p>`;
                 textCarousel.appendChild(textSlide);
 
                 // Create image slides
                 const imageSlide = document.createElement('div');
                 imageSlide.className = 'carousel-slide';
                 imageSlide.innerHTML = `
-                    <img src="${slide.image}" alt="${slide.title}" class="w-full h-auto rounded-lg shadow-2xl">
+                    <img src="${slide.image}" alt="${slide.title}" class="w-full h-full object-cover">
                 `;
                 imageCarousel.appendChild(imageSlide);
 
@@ -487,10 +542,16 @@
             showSlide(currentSlide);
 
             // Navigation buttons
-            document.getElementById('prev-btn').addEventListener('click', prevSlide);
-            document.getElementById('next-btn').addEventListener('click', nextSlide);
+            document.getElementById('prev-btn').addEventListener('click', function (e) {
+                e.stopPropagation();
+                prevSlide();
+            });
+            document.getElementById('next-btn').addEventListener('click', function (e) {
+                e.stopPropagation();
+                nextSlide();
+            });
 
-            // Autoplay
+            // Autoplay - Changed from 5000ms to 3000ms for faster transition
             startAutoplay();
 
             // Pause on hover
@@ -537,7 +598,7 @@
 
             function startAutoplay() {
                 stopAutoplay();
-                autoplayInterval = setInterval(nextSlide, 5000);
+                autoplayInterval = setInterval(nextSlide, 3000); // Changed from 5000 to 3000 for faster transition
             }
 
             function stopAutoplay() {
